@@ -1,0 +1,111 @@
+
+body {
+    font-family: Unbounded, sans-serif;
+    /* background: linear-gradient(to bottom, #c084fc, #ffffff); */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color:hsla(0,0%,100%,1);
+background-image:
+radial-gradient(at 10% 8%, hsla(279,100%,57%,0.5) 0px, transparent 50%),
+radial-gradient(at 7% 86%, hsla(306,100%,81%,0.5) 0px, transparent 50%),
+radial-gradient(at 96% 89%, hsla(279,100%,57%,0.5) 0px, transparent 50%),
+radial-gradient(at 44% 6%, hsla(306,100%,81%,0.5) 0px, transparent 50%),
+radial-gradient(at 23% 57%, hsla(355,100%,93%,0.5) 0px, transparent 50%),
+radial-gradient(at 84% 15%, hsla(279,100%,57%,0.5) 0px, transparent 50%);
+    }
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.background{
+    height: 100vh;
+    width: 100vw;
+}
+
+.background-svg {
+    position: fixed;
+    top: -50px; /* Поднять SVG вверх */
+    right: -50px; /* Прижать к правому краю */
+    width: 500px; /* Размер */
+    height: 500px;
+   
+    z-index: -1; /* Уводим в фон */
+    opacity: 1; /* Легкая прозрачность */
+    pointer-events: none; /* SVG не мешает кликам */
+}
+
+.background-svg-bottom {
+    position: fixed;
+    bottom: -50px; /* Опустить вниз */
+    left: -50px; /* Прижать к левому краю */
+    width: 500px; /* Размер */
+    height: 500px;
+    z-index: -1; /* Уводим в фон */
+    opacity: 1; /* Легкая прозрачность */
+    pointer-events: none; /* SVG не мешает кликам */
+}
+
+
+.login-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    padding: 20px;
+    border-radius: 15px;
+    text-align: center;
+}
+
+.login-container {
+    background-color: transparent;
+    box-shadow: none;
+    border: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.login-container input {
+    font-family: Unbounded; 
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.51);
+    background: rgba(255, 255, 255, 0.24);
+    backdrop-filter: blur(10.5px);
+    outline: none;
+   
+    margin-bottom: 7%;
+    width: 375px;
+}
+
+
+
+.login-container button {
+    font-family: Unbounded, sans-serif;
+    align-items: center;
+    display: flex;
+    padding: 10px 20px 10px 20px;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.51);
+    background: rgba(255, 255, 255, 0.24);
+    backdrop-filter: blur(10.5px);
+    
+    margin-top: 5%;
+    justify-content: center;
+}
+
+
+.login-container button:hover {
+    background: transparent;
+    border: 2px solid whitesmoke;
+    color: whitesmoke;
+}
+

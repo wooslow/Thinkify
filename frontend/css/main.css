@@ -1,0 +1,136 @@
+body {
+    font-family: Unbounded, sans-serif;
+    /* background: linear-gradient(to bottom, #c084fc, #ffffff); */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.background-svg {
+    position: fixed;
+    top: -50px; /* Поднять SVG вверх */
+    right: -50px; /* Прижать к правому краю */
+    width: 500px; /* Размер */
+    height: 500px;
+   
+    z-index: -1; /* Уводим в фон */
+    opacity: 1; /* Легкая прозрачность */
+    pointer-events: none; /* SVG не мешает кликам */
+}
+
+.background-svg-bottom {
+    position: fixed;
+    bottom: -50px; /* Опустить вниз */
+    left: -50px; /* Прижать к левому краю */
+    width: 500px; /* Размер */
+    height: 500px;
+    z-index: -1; /* Уводим в фон */
+    opacity: 1; /* Легкая прозрачность */
+    pointer-events: none; /* SVG не мешает кликам */
+}
+
+
+.container {
+    width: 375px;
+    border-radius: 20px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 100%;
+   
+}
+
+.container2{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+.header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.name{
+    margin: 0;
+}
+.stripe{
+    margin: 0;
+}
+.profile-pic {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: gray;
+}
+
+.chart-container {
+    width: 100%;
+    max-width: 600px;
+    margin: 20px auto;
+}
+
+
+.cards-container {
+    width: 100%; /* Или задайте конкретную ширину, например 300px */
+    max-width: 600px; /* Ограничение максимальной ширины */
+    height: 400px; /* Ограничьте высоту контейнера */
+    overflow-y: auto; /* Добавляет прокрутку при необходимости */
+    border: 1px solid #ccc; /* Видимая граница */
+    padding: 10px;
+    display: flex;
+    flex-wrap: wrap; /* Позволяет карточкам переноситься */
+    gap: 10px;
+    border: none; /* Отступы между карточками */
+}
+
+.card {
+    margin-top: 20px;
+    border-radius: 10px;
+    padding: 18px;
+    border: 1px solid rgba(255, 255, 255, 0.21);
+    background: rgba(232, 224, 224, 0.24);
+    backdrop-filter: blur(10.5px);
+
+}
+
+.card h4{
+    margin: 0;
+}
+
+.start-butt{
+    color: black;
+    border: none;
+    border-radius: 5px;
+    background: rgba(219, 211, 223, 0.74);
+    padding: 6px 14px 6px 14px;
+    }
+
+    .footer {
+        display: fkex;
+        align-items: center;
+        border: 1px solid whitesmoke;
+        display: flex;
+        justify-content: space-between;
+        padding: 10px 20px 10px 20px;
+        border-radius: 10px;
+        border: 1px solid rgba(255, 255, 255, 0.51);
+        background: rgba(255, 255, 255, 0.24);
+        backdrop-filter: blur(10.5px);
+        width: 375px;
+        margin-top: 5%;
+    }
+.footer button {
+    background-color: transparent;
+    border: none;
+}
