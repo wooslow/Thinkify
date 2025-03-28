@@ -1,30 +1,69 @@
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
     const container = document.querySelector(".cards-container");
-    
-    function createCard(title, description, buttonText) {
-        const card = document.createElement("div");
-        card.classList.add("card");
-        
-        const h4 = document.createElement("h4");
-        h4.textContent = title;
-        
-        const p = document.createElement("p");
-        p.textContent = description;
-        
-        const button = document.createElement("button");
-        button.classList.add("start-butt");
-        button.textContent = buttonText;
-        
-        card.appendChild(h4);
-        card.appendChild(p);
-        card.appendChild(button);
-        
-        container.appendChild(card);
+
+    const loader = document.createElement("div");
+    loader.textContent = "Loading...";
+    loader.style.textAlign = "center";
+    loader.style.fontSize = "18px";
+    container.appendChild(loader);
+
+    async function fetchData() {
+        try {
+            const response = await fetch("");
+            if (!response.ok) throw new Error(`Failed to load data: ${response.statusText}`);
+
+            const data = await response.json();
+            renderCards(data);
+        } catch (error) {
+            console.error("Error fetching data:", error);
+            showError("Failed to load cards. Please try again later.");
+        } finally {
+            loader.remove(); 
+        }
     }
-    
-    // Пример добавления карточек
-    createCard("Russian to A2", "Lorem Ipsum is simply dummy text of the printing and typesetting industry.", "15/30");
-    createCard("Russian to B1", "Another example of dummy text for demonstration purposes.", "10/20");
+
+    function renderCards(cards) {
+        container.innerHTML = ""; 
+
+        if (!cards.length) {
+            showError("No cards available.");
+            return;
+        }
+
+        const fragment = document.createDocumentFragment();
+
+        cards.forEach(({ title, description, buttonText }) => {
+            const card = document.createElement("div");
+            card.classList.add("card");
+
+            card.innerHTML = `
+                <h4>${title}</h4>
+                <p>${description}</p>
+                <button class="start-btn">${buttonText}</button>
+            `;
+
+            fragment.appendChild(card);
+        });
+
+        container.appendChild(fragment);
+    }
+
+    function showError(message) {
+        container.innerHTML = `<p style="color: red; text-align: center;">${message}</p>`;
+    }
+
+
+    function debounce(func, delay = 300) {
+        let timeout;
+        return function (...args) {
+            clearTimeout(timeout);
+            timeout = setTimeout(() => func(...args), delay);
+        };
+    }
+
+    const fetchDebounced = debounce(fetchData, 500);
+
+    fetchDebounced();
 });
 
 
