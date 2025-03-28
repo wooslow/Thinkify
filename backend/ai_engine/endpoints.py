@@ -55,6 +55,6 @@ async def get_course(
     user: UserBaseSchema = Depends(AuthService.get_current_user),
 ):
     ai_service = AIService(database)
-    answer = await ai_service.get_test_for_task(task_id)
+    answer = await ai_service.get_all_test_for_task(task_id)
 
     return answer

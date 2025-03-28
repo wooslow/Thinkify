@@ -83,3 +83,9 @@ class AIRepository:
             query = select(CourseTestModel).where(CourseTestModel.task_id == task_id)
             test = await session.execute(query)
             return test.scalar()
+
+    async def get_tests(self, task_id: int) -> CourseTestModel:
+        async with self.database as session:
+            query = select(CourseTestModel).where(CourseTestModel.task_id == task_id and CourseTestModel.question_type == "radio")
+            test = await session.execute(query)
+            return test.scalar()

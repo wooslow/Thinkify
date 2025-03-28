@@ -33,7 +33,6 @@ class AuthService:
     async def login_user(self, user: UserRegisterSchema) -> dict:
         """ Authenticate user and return JWT tokens """
         db_user = await self.user_repository.get_user_by_email(email=user.email)
-        print(user.hash_password, db_user.hash_password)
         if db_user is None or not self.check_password(user.hash_password, db_user.hash_password):
             raise HTTPException(status_code=401, detail="Invalid email or password")
 
@@ -105,3 +104,26 @@ class AuthService:
 
         return user
 
+    @staticmethod
+    async def get_currect_user_by_cookie(
+        auth: HTTPAuthorizationCredentials = Security(security),
+        db: DatabaseSession = DatabaseSession,
+    ):
+        secret_key = os.getenv("SECRET_KEY")
+
+        try:
+            payload = jwt.decode(auth.credentials, secret_key, algorithms="HS256")
+            email: str = payload.get("email")
+
+            if email is None:
+                raise HTTPException(status_code=401, detail="Invalid token")
+
+        except JWTError:
+            raise HTTPException(status_code=401, detail="Invalid credentials")
+
+        user = await UserRepository(db).get_user_by_email(email=email)
+
+        if user is None:
+            raise HTTPException(status_code=401, detail="User not found")
+
+        return user

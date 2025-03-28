@@ -50,16 +50,32 @@ class AIService:
         answer = await self.ai_repository.get_courses(user)
         return [course.model_dump() for course in answer]
 
+    async def get_course(self, course_id: int) -> dict:
+        """ Fetch course from database """
+        answer = await self.ai_repository.get_course(course_id)
+        return answer.model_dump()
+
     async def get_task(self, course_id: int, task_number: int) -> dict:
         """ Fetch task from course """
         answer = await self.ai_repository.get_course(course_id)
 
-        answer = answer.tasks[task_number - 1]
+        if task_number == 0:
+            task_number = 0
+        else:
+            task_number =- 1
+
+        answer = answer.tasks[task_number]
 
         return answer.model_dump()
 
     async def get_test_for_task(self, task_id: int) -> dict:
         """ Fetch test for task """
         answer = await self.ai_repository.get_test(task_id)
+
+        return answer.model_dump()
+
+    async def get_all_test_for_task(self, task_id: int) -> dict:
+        """ Fetch all test for task """
+        answer = await self.ai_repository.get_tests(task_id)
 
         return answer.model_dump()
