@@ -26,19 +26,19 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
-        const topicData = {
-            shortTitle,
-            achievement,
-            selfEvaluation
+        const courseData = {
+            name: shortTitle,
+            description: achievement,
+            selfEvaluation: selfEvaluation
         };
 
         try {
-            const response = await fetch('/your-server-endpoint', {
+            const response = await fetch('/course', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify(topicData)
+                body: JSON.stringify(courseData)
             });
 
             if (!response.ok) {

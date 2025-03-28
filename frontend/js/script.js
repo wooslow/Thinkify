@@ -1,71 +1,66 @@
 document.addEventListener("DOMContentLoaded", function () {
     const container = document.querySelector(".cards-container");
-
+  
     const loader = document.createElement("div");
     loader.textContent = "Loading...";
     loader.style.textAlign = "center";
     loader.style.fontSize = "18px";
     container.appendChild(loader);
-
+  
     async function fetchData() {
-        try {
-            const response = await fetch("");
-            if (!response.ok) throw new Error(`Failed to load data: ${response.statusText}`);
-
-            const data = await response.json();
-            renderCards(data);
-        } catch (error) {
-            console.error("Error fetching data:", error);
-            showError("Failed to load cards. Please try again later.");
-        } finally {
-            loader.remove(); 
-        }
+      try {
+        const response = await fetch("/courses");
+        if (!response.ok)
+          throw new Error(`Failed to load data: ${response.statusText}`);
+  
+        const data = await response.json();
+        renderCards(data);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+        showError("Failed to load cards. Please try again later.");
+      } finally {
+        loader.remove();
+      }
     }
-
-    function renderCards(cards) {
-        container.innerHTML = ""; 
-
-        if (!cards.length) {
-            showError("No cards available.");
-            return;
-        }
-
-        const fragment = document.createDocumentFragment();
-
-        cards.forEach(({ title, description, buttonText }) => {
-            const card = document.createElement("div");
-            card.classList.add("card");
-
-            card.innerHTML = `
-                <h4>${title}</h4>
-                <p>${description}</p>
-                <button class="start-btn">${buttonText}</button>
-            `;
-
-            fragment.appendChild(card);
-        });
-
-        container.appendChild(fragment);
+  
+    function renderCards(courses) {
+      container.innerHTML = "";
+      if (!courses.length) {
+        showError("No courses available.");
+        return;
+      }
+      const fragment = document.createDocumentFragment();
+      courses.forEach((course) => {
+        const card = document.createElement("div");
+        card.classList.add("card");
+        card.innerHTML = `
+          <h4>${course.name}</h4>
+          <p>${course.description}</p>
+          <p><strong>Author:</strong> ${course.author}</p>
+          <p><strong>Passed Lessons:</strong> ${course.passed_lessons}</p>
+          <button class="start-btn">Start Course</button>
+        `;
+        fragment.appendChild(card);
+      });
+      container.appendChild(fragment);
     }
-
+  
     function showError(message) {
-        container.innerHTML = `<p style="color: red; text-align: center;">${message}</p>`;
+      container.innerHTML = `<p style="color: red; text-align: center;">${message}</p>`;
     }
-
-
+  
     function debounce(func, delay = 300) {
-        let timeout;
-        return function (...args) {
-            clearTimeout(timeout);
-            timeout = setTimeout(() => func(...args), delay);
-        };
+      let timeout;
+      return function (...args) {
+        clearTimeout(timeout);
+        timeout = setTimeout(() => func(...args), delay);
+      };
     }
-
+  
     const fetchDebounced = debounce(fetchData, 500);
-
     fetchDebounced();
-});
-
+  });
+  
 
 
 document.addEventListener("DOMContentLoaded", function () {
