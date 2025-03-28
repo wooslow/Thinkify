@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Thinkify</title>
-    <link reL="stylesheet" href="../frontend/css/newtopic.css">
+    <link reL="stylesheet" href="/static/css/newtopic.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@200..900&display=swap" rel="stylesheet">
@@ -46,10 +46,10 @@
 
     <div class="container">
         <div class="header">
-            <img class="profile-pic" src="../assets/photo_2025-03-27 18.06.03.jpeg"> 
+            <img class="profile-pic" src="/static/assets/avatar_1123.png">
             <div>
-                <h3 class="name" id="name">Hello, wooslow!</h3>
-                <p class="stripe" id="stripe">🔥 15 days</p>
+                <h3 class="name" id="name">Hello, {{ username }}!</h3>
+                <p class="stripe" id="stripe">🔥 1 days</p>
             </div>
         </div>
   
@@ -67,6 +67,6 @@
     </div>
 
   
-    <script src="../frontend/js/newtopic.js"></script>
+    <script src="/static/js/newtopic.js"></script>
 </body>
 </html>

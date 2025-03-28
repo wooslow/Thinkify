@@ -27,16 +27,18 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         const courseData = {
-            name: shortTitle,
-            description: achievement,
-            selfEvaluation: selfEvaluation
+            topic: shortTitle,
+            destination: achievement,
+            knows_now: selfEvaluation
         };
 
         try {
-            const response = await fetch('/course', {
+            const token = localStorage.getItem('token');
+            const response = await fetch('/api/course', {
                 method: 'POST',
                 headers: {
-                    'Content-Type': 'application/json'
+                    'Content-Type': 'application/json',
+                    Authorization: `Bearer ${token}`
                 },
                 body: JSON.stringify(courseData)
             });
@@ -47,7 +49,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             const result = await response.json();
             console.log('Data sent successfully:', result);
-            showStatus('Data sent successfully!');
+            window.location.href = '/main';
             inputs.forEach(input => input.value = '');
         } catch (error) {
             console.error('Error sending data:', error);

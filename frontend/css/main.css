@@ -108,16 +108,18 @@ body {
     margin: 0;
 }
 
-.start-butt{
+
+.start-btn {
+    margin-top: 10px;
     color: black;
     border: none;
     border-radius: 5px;
+    gap: 10px;
     background: rgba(219, 211, 223, 0.74);
     padding: 6px 14px 6px 14px;
     }
 
     .footer {
-        display: fkex;
         align-items: center;
         border: 1px solid whitesmoke;
         display: flex;

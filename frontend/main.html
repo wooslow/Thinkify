@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Thinkify</title>
-    <link reL="stylesheet" href="../frontend/css/main.css">
+    <link reL="stylesheet" href="/static/css/main.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@200..900&display=swap" rel="stylesheet">
@@ -54,10 +54,10 @@
         
         
         <div class="header">
-            <img class="profile-pic" src="../assets/photo_2025-03-27 18.06.03.jpeg"> 
+            <img class="profile-pic" src="/static/assets/avatar_1123.png">
             <div>
                 <h3 class="name" id="name">Hello, {{ username }}!</h3>
-                <p class="stripe" id="stripe">🔥 15 days</p>
+                <p class="stripe" id="stripe">🔥 1 day</p>
             </div>
         </div>
         <div class="container2">
@@ -81,17 +81,16 @@
                 <path d="M22 22V22.5H22.5V22H22ZM22 11.5358H22.5V11.3217L22.3451 11.1739L22 11.5358ZM16 22H15.5V22.5H16V22ZM8 22V22.5H8.5V22H8ZM2 22H1.5V22.5H2L2 22ZM2 11.5358L1.65495 11.1739L1.5 11.3217V11.5358H2ZM12 2L12.3451 1.63815L12 1.30911L11.6549 1.63815L12 2ZM22.5 22V11.5358H21.5V22H22.5ZM16 22.5H22V21.5H16V22.5ZM16.5 22V17H15.5L15.5 22H16.5ZM16.5 17C16.5 14.5147 14.4853 12.5 12 12.5V13.5C13.933 13.5 15.5 15.067 15.5 17H16.5ZM12 12.5C9.51472 12.5 7.5 14.5147 7.5 17H8.5C8.5 15.067 10.067 13.5 12 13.5V12.5ZM7.5 17V22H8.5V17H7.5ZM2 22.5H8V21.5H2L2 22.5ZM1.5 11.5358L1.5 22H2.5L2.5 11.5358H1.5ZM11.6549 1.63815L1.65495 11.1739L2.34505 11.8976L12.3451 2.36185L11.6549 1.63815ZM22.3451 11.1739L12.3451 1.63815L11.6549 2.36185L21.6549 11.8976L22.3451 11.1739Z" fill="black"/>
                 </svg>
             </button>
-            <button>
+            <button onclick="window.location.href='/create'">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <rect x="2" y="2" width="20" height="20" rx="5" stroke="black" stroke-width="1.8"/>
                     <line x1="12.1" y1="6.9" x2="12.1" y2="17.1" stroke="black" stroke-width="1.8" stroke-linecap="round"/>
                     <line x1="6.9" y1="11.8" x2="17.1" y2="11.8" stroke="black" stroke-width="1.8" stroke-linecap="round"/>
                 </svg>
-                    
             </button>
         </div>
     </div>
 </div>
-    <script src="../frontend/js/script.js"></script>
+    <script src="/static/js/script.js"></script>
 </body>
 </html>

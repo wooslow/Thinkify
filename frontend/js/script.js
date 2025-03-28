@@ -9,7 +9,14 @@ document.addEventListener("DOMContentLoaded", function () {
   
     async function fetchData() {
       try {
-        const response = await fetch("/courses");
+            const token = localStorage.getItem("token");
+            const response = await fetch("/api/courses", {
+                method: "GET",
+                headers: {
+                    "Content-Type": "application/json",
+                    "Authorization": `Bearer ${token}`
+                }
+            });
         if (!response.ok)
           throw new Error(`Failed to load data: ${response.statusText}`);
   
@@ -17,7 +24,7 @@ document.addEventListener("DOMContentLoaded", function () {
         renderCards(data);
       } catch (error) {
         console.error("Error fetching data:", error);
-        showError("Failed to load cards. Please try again later.");
+        showError("No courses available. Please click below to add a course.");
       } finally {
         loader.remove();
       }
@@ -26,7 +33,7 @@ document.addEventListener("DOMContentLoaded", function () {
     function renderCards(courses) {
       container.innerHTML = "";
       if (!courses.length) {
-        showError("No courses available.");
+        showError("No courses available.<br> Please click below to add a course.");
         return;
       }
       const fragment = document.createDocumentFragment();
@@ -34,11 +41,10 @@ document.addEventListener("DOMContentLoaded", function () {
         const card = document.createElement("div");
         card.classList.add("card");
         card.innerHTML = `
-          <h4>${course.name}</h4>
-          <p>${course.description}</p>
-          <p><strong>Author:</strong> ${course.author}</p>
-          <p><strong>Passed Lessons:</strong> ${course.passed_lessons}</p>
-          <button class="start-btn">Start Course</button>
+          <h4>${course.name} | ${course.passed_lessons}</h4>
+          <p style="color: rgba(0,0,0,0.53);">${course.description}</p>
+          <button class="start-btn" onclick="window.location.href='/learn/${course.id}/${course.passed_lessons}'">Continue</button>
+          <button class="start-btn">Remove</button>
         `;
         fragment.appendChild(card);
       });
@@ -102,7 +108,8 @@ document.addEventListener("DOMContentLoaded", function () {
                         text: "lessons learned",
                         color: "black",
                         font: { size: 18, weight: "bold" },
-                        padding: 10
+                        padding: 10,
+                        paddingLeft: 100
                     }
                 },
                 y: {
@@ -130,4 +137,5 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Убираем фон, делая его прозрачным
     document.getElementById("customChart").style.background = "transparent";
+    document.getElementById("customChart").style.marginLeft = "-30px"
 });

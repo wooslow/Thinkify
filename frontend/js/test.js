@@ -3,9 +3,10 @@ document.addEventListener("DOMContentLoaded", async () => {
     const submitBtn = document.getElementById("submit-btn");
     
     try {
-        const response = await fetch("https://your-backend.com/api/questions");
+        const task_id = window.location.href.split("/").pop();
+        const response = await fetch(`/api/course/tests/${task_id}`);
         const questions = await response.json();
-        
+
         questions.forEach((q, index) => {
             const questionElement = document.createElement("div");
             questionElement.classList.add("question");

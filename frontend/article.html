@@ -4,35 +4,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Thinkify</title>
-    <link rel="stylesheet" href="../frontend/css/article.css">
+    <link rel="stylesheet" href="/static/css/article.css">
     <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@200..900&display=swap" rel="stylesheet">
 </head>
 <body>
     
 <div class="container">
     <div class="header">
-        <img class="profile-pic" src="../assets/photo_2025-03-27 18.06.03.jpeg"> 
+        <img class="profile-pic" src="/static/assets/avatar_1123.png">
         <div>
-            <h3 class="name" id="name">Hello, wooslow!</h3>
-            <p class="stripe" id="stripe">🔥 15 days</p>
+            <h3 class="name" id="name">Hello, {{ username }}!</h3>
+            <p class="stripe" id="stripe">🔥 1 days</p>
         </div>
     </div>
-
-    
 
     <div class="container2">
        <div class="father-article-contaner">
         <div class="theme-lesson-container">
-            <h1 class="theme" id="theme">Theme: English to A2</h1>
-            <h1 class="lesson" id="lesson">Lesson: Say hello!</h1>
+            <h1 class="theme" id="theme">Theme: {{ theme }}</h1>
+            <h1 class="lesson" id="lesson">Lesson: {{ name }}</h1>
         </div>
 
             <div class="article-container">
-            <p class="article-text" id="article-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic</p>
+            <p class="article-text" id="article-text"> {{ description }}</p>
             </div>
         </div>
-        <button class="go-to-test" id="go-to-test">Go to test</button>
+        <button class="go-to-test" id="go-to-test" onclick="window.location.href = '/test/{{ test_id }}'">Go to test</button>
 
 
         <div class="footer">
@@ -58,7 +55,6 @@
                     
             </button>
         </div>
-
 </div>
 </div>
 </body>
