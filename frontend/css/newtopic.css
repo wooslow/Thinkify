@@ -1,0 +1,122 @@
+body {
+    font-family: Unbounded, sans-serif;
+    /* background: linear-gradient(to bottom, #c084fc, #ffffff); */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.background-svg {
+    position: fixed;
+    top: -50px; /* Поднять SVG вверх */
+    right: -50px; /* Прижать к правому краю */
+    width: 500px; /* Размер */
+    height: 500px;
+   
+    z-index: -1; /* Уводим в фон */
+    opacity: 1; /* Легкая прозрачность */
+    pointer-events: none; /* SVG не мешает кликам */
+}
+
+.background-svg-bottom {
+    position: fixed;
+    bottom: -50px; /* Опустить вниз */
+    left: -50px; /* Прижать к левому краю */
+    width: 500px; /* Размер */
+    height: 500px;
+    z-index: -1; /* Уводим в фон */
+    opacity: 1; /* Легкая прозрачность */
+    pointer-events: none; /* SVG не мешает кликам */
+}
+
+.container {
+    width: 375px;
+    border-radius: 20px;
+   
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 100%;
+   
+}
+
+.container2{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-around;
+}
+
+
+.container2 h1{
+    font-size: 20px;
+}
+
+.container2 h2 {
+    font-size: 15px;
+}
+
+.container2 input{
+    font-family: Unbounded; 
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.51);
+    background: rgba(255, 255, 255, 0.24);
+    backdrop-filter: blur(10.5px);
+    outline: none;
+    margin-top: 5%;
+    margin-bottom: 10%;
+    width: 375px;
+}
+
+.container2 input::placeholder {
+    font-family: Unbounded; 
+ 
+  }
+
+  .container2 input::-ms-input-placeholder {
+   font-family:Unbounded ;
+  }
+
+.header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.name{
+    margin: 0;
+}
+.stripe{
+    margin: 0;
+}
+.profile-pic {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: gray;
+}
+
+
+.add-topic{
+    font-family: Unbounded, sans-serif;
+    align-items: center;
+    display: flex;
+    padding: 10px 20px 10px 20px;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.51);
+    background: rgba(255, 255, 255, 0.24);
+    backdrop-filter: blur(10.5px);
+    width: 375px;
+    margin-top: 5%;
+    justify-content: center;
+}

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thinkify</title>
+    <link reL="stylesheet" href="/static/css/newtopic.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@200..900&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="background-svg">
+        <svg width="500" height="500" viewBox="0 0 393 304" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g filter="url(#filter0_f_35_693)">
+            <path d="M274.476 8.07909C399.153 -42.3305 445.662 95.2284 414.289 212.823C408.548 207.114 377.41 197.957 298.785 207.005C220.161 216.053 91.7009 117.548 37.2989 67.1639C58.4131 54.7107 102.138 30.6773 108.122 34.1694C115.603 38.5344 149.799 58.4887 274.476 8.07909Z" fill="#C85DF2"/>
+            <path d="M274.476 8.07909C399.153 -42.3305 445.662 95.2284 414.289 212.823C408.548 207.114 377.41 197.957 298.785 207.005C220.161 216.053 91.7009 117.548 37.2989 67.1639C58.4131 54.7107 102.138 30.6773 108.122 34.1694C115.603 38.5344 149.799 58.4887 274.476 8.07909Z" stroke="black"/>
+            </g>
+            <defs>
+            <filter id="filter0_f_35_693" x="-53.5336" y="-93.1273" width="567.799" height="396.915" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+            <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+            <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+            <feGaussianBlur stdDeviation="45" result="effect1_foregroundBlur_35_693"/>
+            </filter>
+            </defs>
+            </svg>
+            
+    </div>
+
+    <div class="background-svg-bottom">
+        <svg xmlns="http://www.w3.org/2000/svg" width="500" height="500" viewBox="0 0 393 370" fill="none">
+            <g filter="url(#filter0_f_23_47)">
+                <path d="M171.037 289.011C49.9746 347.572 -5.548 213.397 17.9637 93.9821C24.0704 99.2985 55.747 106.372 133.599 92.1332C211.451 77.8947 346.156 167.671 403.778 214.339C383.535 228.164 341.499 255.042 335.296 251.954C327.543 248.095 292.099 230.45 171.037 289.011Z" fill="#C85DF2" stroke="black"/>
+            </g>
+            <defs>
+                <filter id="filter0_f_23_47" x="-77.8273" y="0.120361" width="572.441" height="393.571" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                    <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+                    <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+                    <feGaussianBlur stdDeviation="45" result="effect1_foregroundBlur_23_47"/>
+                </filter>
+            </defs>
+        </svg>
+    </div>
+
+    <div class="container">
+        <div class="header">
+            <img class="profile-pic" src="/static/assets/avatar_1123.png">
+            <div>
+                <h3 class="name" id="name">Hello, {{ username }}!</h3>
+                <p class="stripe" id="stripe">🔥 1 days</p>
+            </div>
+        </div>
+  
+
+        <div class="container2">
+            <h1>New Topic</h1>
+            <h2>Short title of the topic</h2>
+            <input placeholder="EXAMPLE: ENGLISH">
+            <h2>What would I like to achieve by taking the classes?</h2>
+            <input placeholder="EXAMPLE: ENGLISH A2 in 2 weeks">
+            <h2>What do I know now and how do I evaluate myself?</h2>
+            <input>
+        </div>
+        <button class="add-topic" id="add-topic">Add</button>
+    </div>
+
+  
+    <script src="/static/js/newtopic.js"></script>
+</body>
+</html>

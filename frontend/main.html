@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thinkify</title>
+    <link reL="stylesheet" href="/static/css/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@200..900&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <style>
+      
+    </style>
+</head>
+<body>
+    </script>
+    <div class="background-svg">
+        <svg width="500" height="500" viewBox="0 0 393 304" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g filter="url(#filter0_f_35_693)">
+            <path d="M274.476 8.07909C399.153 -42.3305 445.662 95.2284 414.289 212.823C408.548 207.114 377.41 197.957 298.785 207.005C220.161 216.053 91.7009 117.548 37.2989 67.1639C58.4131 54.7107 102.138 30.6773 108.122 34.1694C115.603 38.5344 149.799 58.4887 274.476 8.07909Z" fill="#C85DF2"/>
+            <path d="M274.476 8.07909C399.153 -42.3305 445.662 95.2284 414.289 212.823C408.548 207.114 377.41 197.957 298.785 207.005C220.161 216.053 91.7009 117.548 37.2989 67.1639C58.4131 54.7107 102.138 30.6773 108.122 34.1694C115.603 38.5344 149.799 58.4887 274.476 8.07909Z" stroke="black"/>
+            </g>
+            <defs>
+            <filter id="filter0_f_35_693" x="-53.5336" y="-93.1273" width="567.799" height="396.915" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+            <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+            <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+            <feGaussianBlur stdDeviation="45" result="effect1_foregroundBlur_35_693"/>
+            </filter>
+            </defs>
+            </svg>
+            
+    </div>
+
+    <div class="background-svg-bottom">
+        <svg xmlns="http://www.w3.org/2000/svg" width="500" height="500" viewBox="0 0 393 370" fill="none">
+            <g filter="url(#filter0_f_23_47)">
+                <path d="M171.037 289.011C49.9746 347.572 -5.548 213.397 17.9637 93.9821C24.0704 99.2985 55.747 106.372 133.599 92.1332C211.451 77.8947 346.156 167.671 403.778 214.339C383.535 228.164 341.499 255.042 335.296 251.954C327.543 248.095 292.099 230.45 171.037 289.011Z" fill="#C85DF2" stroke="black"/>
+            </g>
+            <defs>
+                <filter id="filter0_f_23_47" x="-77.8273" y="0.120361" width="572.441" height="393.571" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                    <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+                    <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+                    <feGaussianBlur stdDeviation="45" result="effect1_foregroundBlur_23_47"/>
+                </filter>
+            </defs>
+        </svg>
+    </div>
+    
+  
+    <div class="container">
+        
+        
+        <div class="header">
+            <img class="profile-pic" src="/static/assets/avatar_1123.png">
+            <div>
+                <h3 class="name" id="name">Hello, {{ username }}!</h3>
+                <p class="stripe" id="stripe">🔥 1 day</p>
+            </div>
+        </div>
+        <div class="container2">
+        <canvas id="customChart"></canvas>
+
+        <div class="cards-container">
+        </div>
+       
+        
+        <div class="footer">
+            <button>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="6.5" cy="11.5" r="1.5" fill="black"/>
+                    <circle cx="12" cy="11.5" r="1.5" fill="black"/>
+                    <circle cx="17.5" cy="11.5" r="1.5" fill="black"/>
+                </svg>                    
+            </button>
+            <button>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M22 11.5358V22H16V17C16 14.7909 14.2091 13 12 13C9.79086 13 8 14.7909 8 17V22H2L2 11.5358L12 2L22 11.5358Z" fill="black"/>
+                <path d="M22 22V22.5H22.5V22H22ZM22 11.5358H22.5V11.3217L22.3451 11.1739L22 11.5358ZM16 22H15.5V22.5H16V22ZM8 22V22.5H8.5V22H8ZM2 22H1.5V22.5H2L2 22ZM2 11.5358L1.65495 11.1739L1.5 11.3217V11.5358H2ZM12 2L12.3451 1.63815L12 1.30911L11.6549 1.63815L12 2ZM22.5 22V11.5358H21.5V22H22.5ZM16 22.5H22V21.5H16V22.5ZM16.5 22V17H15.5L15.5 22H16.5ZM16.5 17C16.5 14.5147 14.4853 12.5 12 12.5V13.5C13.933 13.5 15.5 15.067 15.5 17H16.5ZM12 12.5C9.51472 12.5 7.5 14.5147 7.5 17H8.5C8.5 15.067 10.067 13.5 12 13.5V12.5ZM7.5 17V22H8.5V17H7.5ZM2 22.5H8V21.5H2L2 22.5ZM1.5 11.5358L1.5 22H2.5L2.5 11.5358H1.5ZM11.6549 1.63815L1.65495 11.1739L2.34505 11.8976L12.3451 2.36185L11.6549 1.63815ZM22.3451 11.1739L12.3451 1.63815L11.6549 2.36185L21.6549 11.8976L22.3451 11.1739Z" fill="black"/>
+                </svg>
+            </button>
+            <button onclick="window.location.href='/create'">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="2" y="2" width="20" height="20" rx="5" stroke="black" stroke-width="1.8"/>
+                    <line x1="12.1" y1="6.9" x2="12.1" y2="17.1" stroke="black" stroke-width="1.8" stroke-linecap="round"/>
+                    <line x1="6.9" y1="11.8" x2="17.1" y2="11.8" stroke="black" stroke-width="1.8" stroke-linecap="round"/>
+                </svg>
+            </button>
+        </div>
+    </div>
+</div>
+    <script src="/static/js/script.js"></script>
+</body>
+</html>
