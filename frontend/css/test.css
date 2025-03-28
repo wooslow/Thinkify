@@ -1,0 +1,82 @@
+body {
+    font-family: 'Unbounded', sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: hsla(0,0%,100%,1);
+    background-image:
+    radial-gradient(at 10% 8%, hsla(279,100%,57%,0.5) 0px, transparent 50%),
+    radial-gradient(at 7% 86%, hsla(306,100%,81%,0.5) 0px, transparent 50%),
+    radial-gradient(at 96% 89%, hsla(279,100%,57%,0.5) 0px, transparent 50%),
+    radial-gradient(at 44% 6%, hsla(306,100%,81%,0.5) 0px, transparent 50%),
+    radial-gradient(at 23% 57%, hsla(355,100%,93%,0.5) 0px, transparent 50%),
+    radial-gradient(at 84% 15%, hsla(279,100%,57%,0.5) 0px, transparent 50%);
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.quiz-container {
+    width: 375px;
+    border-radius: 20px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 100%;
+    margin-top: 20px;
+    border-radius: 10px;
+    padding: 18px;
+    border: 1px solid rgba(255, 255, 255, 0.21);
+    background: rgba(232, 224, 224, 0.24);
+    backdrop-filter: blur(100.5px);
+
+}
+.question {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+.options label {
+    display: block;
+    text-align: left;
+    margin: 5px 0;
+}
+button {
+    font-family: Unbounded, sans-serif;
+    align-items: center;
+    display: flex;
+    padding: 10px 20px 10px 20px;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.51);
+    background: rgba(255, 255, 255, 0.24);
+    backdrop-filter: blur(10.5px);
+    width: 375px;
+    margin-top: 5%;
+    justify-content: center;
+}
+.footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.24);
+    backdrop-filter: blur(10.5px);
+    width: 375px;
+    margin-top: 5%;
+}
+.footer button {
+    background-color: transparent;
+    border: none;
+}
