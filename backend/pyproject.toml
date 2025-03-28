@@ -1,0 +1,23 @@
+[tool.poetry]
+name = "thinkify"
+version = "0.0.1"
+description = "Thinkify is an AI-powered platform designed to help you learn."
+authors = ["Earl <84588908+wooslow@users.noreply.github.com>"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+fastapi = "^0.115.12"
+python-jose = "^3.4.0"
+openai = "^1.69.0"
+python-dotenv = "^1.1.0"
+passlib = "^1.7.4"
+sqlalchemy = "^2.0.40"
+asyncpg = "^0.30.0"
+alembic = "^1.15.1"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
