@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Thinkify</title>
-    <link reL="stylesheet" href="../css/main.css">
+    <link reL="stylesheet" href="/static/css/main.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@200..900&display=swap" rel="stylesheet">
@@ -16,6 +16,7 @@
     </style>
 </head>
 <body>
+    </script>
     <div class="background-svg">
         <svg width="500" height="500" viewBox="0 0 393 304" fill="none" xmlns="http://www.w3.org/2000/svg">
             <g filter="url(#filter0_f_35_693)">
@@ -55,7 +56,7 @@
         <div class="header">
             <img class="profile-pic" src="../assets/photo_2025-03-27 18.06.03.jpeg"> 
             <div>
-                <h3 class="name" id="name">Hello, wooslow!</h3>
+                <h3 class="name" id="name">Hello, {{ username }}!</h3>
                 <p class="stripe" id="stripe">🔥 15 days</p>
             </div>
         </div>
@@ -91,6 +92,6 @@
         </div>
     </div>
 </div>
-    <script src="../js/script.js"></script>    
+    <script src="/static/js/script.js"></script>
 </body>
 </html>

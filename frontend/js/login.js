@@ -66,49 +66,72 @@ document.addEventListener("DOMContentLoaded", () => {
     `;
     document.head.appendChild(spinnerStyle);
 
-    loginButton.addEventListener("click", async () => {
-        const username = usernameInput.value.trim();
-        const password = passwordInput.value.trim();
+loginButton.addEventListener("click", async () => {
+    const email = usernameInput.value.trim();
+    const hash_password = passwordInput.value.trim();
 
-        if (!username || !password) {
-            displayMessage("Please enter your username and password.", true);
-            return;
-        }
-        if (password.length < 6) {
-            displayMessage("Password must be at least 6 characters long.", true);
-            return;
-        }
+    if (!email || !hash_password) {
+        displayMessage("Please enter your username and password.", true);
+        return;
+    }
+    if (hash_password.length < 6) {
+        displayMessage("Password must be at least 6 characters long.", true);
+        return;
+    }
 
-        setButtonState(true);
+    setButtonState(true);
 
-        try {
-            const response = await fetch("/api/login", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify({ username, password })
-            });
+    try {
+        const response = await fetch("/api/register", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({ email, hash_password })
+        });
 
+        if (!response.ok) {
             const data = await response.json();
-
-            if (!response.ok) {
-                displayMessage(`Login failed: ${data.message || "Unknown error"}`, true);
-                return;
-            }
-
-            
-            displayMessage("Login successful!");
-            console.log("Login successful:", data);
-
-            localStorage.setItem("token", data.token);
-            window.location.href = "/main"; 
-
-        } catch (error) {
-            console.error("Error during login:", error);
-            displayMessage("An error occurred while trying to login. Please try again later.", true);
-        } finally {
-            setButtonState(false);
+            displayMessage(`Login failed: ${data.message || "Unknown error"}`, true);
+            return;
         }
-    });
+
+        const response_login = await fetch("/api/login", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({ email, hash_password })
+        });
+
+        if (!response_login.ok) {
+            const data_login = await response_login.json();
+            displayMessage(`Login failed: ${data_login.message || "Unknown error"}`, true);
+            return;
+        }
+
+        const data_login = await response_login.json();
+        localStorage.setItem("token", data_login.access_token);
+
+        const mainResponse = await fetch("/main", {
+            method: "GET",
+            headers: {
+                "Authorization": `Bearer ${data_login.access_token}`
+            }
+        });
+        document.cookie = `token=${data_login.access_token}; path=/; Secure; HttpOnly`;
+
+        if (mainResponse.ok) {
+            document.location.replace("/main");
+        } else {
+            displayMessage("Access denied.", true);
+        }
+
+    } catch (error) {
+        console.error("Error during login:", error);
+        displayMessage("An error occurred while trying to login. Please try again later.", true);
+    } finally {
+        setButtonState(false);
+    }
+});
 });
